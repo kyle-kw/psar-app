@@ -61,6 +61,36 @@ def get_records():
     return {"message": "get records"}
 
 
+@app.get("/v1/records/{record_id}")
+def get_records_detail(record_id: int):
+    return {"message": "get records detail", "record_id": record_id}
+
+
+@app.post("/v1/login")
+def login(request):
+    return {"message": "login", "token": "token"}
+
+
+@app.post("/v1/logout")
+def logout():
+    return {"message": "logout"}
+
+
+@app.post("/v1/batch-create-dataset")
+def batch_create_dataset(request):
+    return {"message": "batch create dataset"}
+
+
+@app.get("/v1/batch-create-dataset/{task_id}")
+def batch_create_dataset_status(task_id: str):
+    return {"message": "batch create dataset status", "task_id": task_id}
+
+
+@app.get("/v1/batch-create-dataset/{task_id}/result")
+def batch_create_dataset_result(task_id: str):
+    return {"message": "batch create dataset result", "task_id": task_id}
+
+
 if __name__ == "__main__":
     import uvicorn
 
